@@ -4,7 +4,6 @@ import * as routName from './routName';
 import VK from '../screen/VK';
 import Translator from '../screen/Translator';
 import {NavigationContainer} from '@react-navigation/native';
-import {Button} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +19,7 @@ function returnMyRoot() {
         />
         <Stack.Screen
           name={routName.VK}
-          component={(props) => {
+          component={props => {
             return <VK {...props} />;
           }}
         />

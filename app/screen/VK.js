@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Modal, View, Button, Image, Text} from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Style from './style';
 
 const photoAva = require('../img/ava.png');
@@ -18,25 +19,25 @@ const photos = [
   {
     url: '',
     props: {
-      source: require('../img/1.png'),
+      source: photo1,
     },
   },
   {
     url: '',
     props: {
-      source: require('../img/2.png'),
+      source: photo2,
     },
   },
   {
     url: '',
     props: {
-      source: require('../img/3.png'),
+      source: photo3,
     },
   },
   {
     url: '',
     props: {
-      source: require('../img/4.png'),
+      source: photo4,
     },
   },
 ];
@@ -62,22 +63,36 @@ export default class VK extends React.Component {
       <View style={{flexDirection: 'column'}}>
         <Modal visible={this.state.visible} transparent={true}>
           <View style={{flex: 1}}>
-            <ImageViewer imageUrls={photos} enableSwipeDown={true} onSwipeDown={this.checkVisibleFalse}/>
+            <ImageViewer
+              imageUrls={photos}
+              enableSwipeDown={true}
+              onSwipeDown={this.checkVisibleFalse}
+            />
           </View>
         </Modal>
         <View style={{flexDirection: 'row', marginLeft: 10}}>
-          <View style = {{flexDirection: 'row', marginTop: 10}}>
-            <Image source={photoAva} style={{width: 70, height: 70}} />
+          <View style={{flexDirection: 'row', marginTop: 10}}>
+            <Image
+              source={photoAva}
+              style={{width: 70, height: 70, borderRadius: 55}}
+            />
           </View>
-          <View style={{flexDirection: 'column', marginLeft: 1}}>
+          <View style={{flexDirection: 'column', marginLeft: 1, marginTop: 10}}>
             <Text style={Style.name}> Yulia Guskova </Text>
             <Text style={Style.statusText}> this is my status </Text>
             <Text style={Style.statusId}> online</Text>
           </View>
         </View>
         <View style={{flexDirection: 'column', marginTop: 5}}>
-          <Button title="Редактировать" color="#808080" />
-
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: 5,
+              backgroundColor: '#808080',
+            }}>
+            <Button title="Редактировать" color="#808080" />
+            <Icon name="pencil" size={30} color="blue" />
+          </View>
           <View
             style={{
               flexDirection: 'row',
