@@ -1,30 +1,78 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Button, Image, Text} from 'react-native';
+import React from 'react';
+import {TouchableOpacity, Modal, View, Button, Image, Text} from 'react-native';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import Style from './style';
 
-const photoAva = [require('/img/ava.png')];
-const photo1 = [require('./img/1.png')];
-const photo2 = [require('./img/2.png')];
-const photo3 = [require('./img/3.png')];
-const photo4 = [require('./img/4.png')];
-const photos = [photoAva, photo1, photo2, photo3, photo4];
+const photoAva = require('../img/ava.png');
+const photo1 = require('../img/1.png');
+const photo2 = require('../img/2.png');
+const photo3 = require('../img/3.png');
+const photo4 = require('../img/4.png');
+const photos = [
+  {
+    url: '',
+    props: {
+      source: photoAva,
+    },
+  },
+  {
+    url: '',
+    props: {
+      source: require('../img/1.png'),
+    },
+  },
+  {
+    url: '',
+    props: {
+      source: require('../img/2.png'),
+    },
+  },
+  {
+    url: '',
+    props: {
+      source: require('../img/3.png'),
+    },
+  },
+  {
+    url: '',
+    props: {
+      source: require('../img/4.png'),
+    },
+  },
+];
 
-photos.map(item => this.renderItem(item));
+export default class VK extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false,
+    };
+  }
 
-export default class VK extends Component {
+  checkVisibleFalse = () => {
+    this.setState({visible: false});
+  };
+
+  checkVisibleTrue = () => {
+    this.setState({visible: true});
+  };
+
   render() {
     return (
       <View style={{flexDirection: 'column'}}>
-        <View style={{flexDirection: 'row', marginLeft: 20}}>
-          <Image
-            source={photoAva}
-            resizeMode={'contain'}
-            style={Style.avatar}
-          />
+        <Modal visible={this.state.visible} transparent={true}>
+          <View style={{flex: 1}}>
+            <ImageViewer imageUrls={photos} enableSwipeDown={true} onSwipeDown={this.checkVisibleFalse}/>
+          </View>
+        </Modal>
+        <View style={{flexDirection: 'row', marginLeft: 10}}>
+          <View style = {{flexDirection: 'row', marginTop: 10}}>
+            <Image source={photoAva} style={{width: 70, height: 70}} />
+          </View>
           <View style={{flexDirection: 'column', marginLeft: 1}}>
             <Text style={Style.name}> Yulia Guskova </Text>
             <Text style={Style.statusText}> this is my status </Text>
-            <Text style={Style.statusId}>online</Text>
+            <Text style={Style.statusId}> online</Text>
           </View>
         </View>
         <View style={{flexDirection: 'column', marginTop: 5}}>
@@ -37,9 +85,9 @@ export default class VK extends Component {
               marginTop: 5,
               marginBottom: 5,
             }}>
-            <Text style={Style.mainText}>История</Text>
-            <Text style={Style.mainText}>Запись</Text>
-            <Text style={Style.mainText}>Фото</Text>
+            <Text style={Style.mainText}>История </Text>
+            <Text style={Style.mainText}>Запись </Text>
+            <Text style={Style.mainText}>Фото </Text>
             <Text style={Style.mainText}>Трансляция</Text>
           </View>
           <View style={{marginTop: 10}}>
@@ -59,19 +107,17 @@ export default class VK extends Component {
         </View>
         <View style={{flexDirection: 'column', marginTop: 10}}>
           <Text style={Style.mainText}>Фотографии 5</Text>
-          <View style={{flexDirection: 'row', marginTop: 10, marginLeft: 20}}>
-            <Image
-              source={{photoAva}}
-              resizeMode={'contain'}
-              style={Style.photo}
-            />
-            <Image source={photo1} resizeMode={'contain'} style={Style.photo} />
-            <Image source={photo2} resizeMode={'contain'} style={Style.photo} />
-          </View>
-          <View style={{flexDirection: 'row', marginTop: 10}}>
-            <Image source={photo3} resizeMode={'contain'} style={Style.photo} />
-            <Image source={photo4} resizeMode={'contain'} style={Style.photo} />
-          </View>
+          <TouchableOpacity onPress={this.checkVisibleTrue}>
+            <View style={{flexDirection: 'row', marginTop: 10}}>
+              <Image source={photoAva} style={{width: 70, height: 70}} />
+              <Image source={photo1} style={{width: 70, height: 70}} />
+              <Image source={photo2} style={{width: 70, height: 70}} />
+            </View>
+            <View style={{flexDirection: 'row', marginTop: 10}}>
+              <Image source={photo3} style={{width: 70, height: 70}} />
+              <Image source={photo4} style={{width: 70, height: 70}} />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );

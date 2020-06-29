@@ -1,17 +1,32 @@
-import {
-  createStackNavigator,
-  createAppContainer,
-} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {VK} from './routName';
-import {Translator} from './routName';
+import * as routName from './routName';
+import VK from '../screen/VK';
+import Translator from '../screen/Translator';
+import {NavigationContainer} from '@react-navigation/native';
+import {Button} from 'react-native';
 
-const Stack = createStackNavigator(
-  {
-    [VK]: <VK />,
-    [Translator]: <Translator />,
-  },
-  {},
-);
+const Stack = createStackNavigator();
 
-export default createAppContainer(Stack);
+function returnMyRoot() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Translator">
+        <Stack.Screen
+          name={routName.Translator}
+          component={props => {
+            return <Translator {...props} />;
+          }}
+        />
+        <Stack.Screen
+          name={routName.VK}
+          component={(props) => {
+            return <VK {...props} />;
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default returnMyRoot;

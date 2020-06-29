@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   avatar: {
-    width: 120,
-    height: 120,
+    width: 12,
+    height: 12,
     borderRadius: 100,
   },
   name: {
@@ -35,21 +35,13 @@ const styles = StyleSheet.create({
     paddingTop: 53,
   },
   input: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderWidth: 0.5,
-    borderColor: '#000',
-    // height: 40,
-    borderRadius: 5,
-    margin: 10,
+
   },
   output: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
     borderWidth: 0.5,
     borderColor: '#000',
     borderRadius: 5,
@@ -57,11 +49,9 @@ const styles = StyleSheet.create({
     height: 80,
   },
   submitButton: {
-    backgroundColor: '#7a42f4',
     padding: 10,
     margin: 15,
     borderRadius: 5,
-    height: 40,
   },
   submitButtonText: {
     color: 'white',

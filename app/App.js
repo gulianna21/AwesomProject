@@ -1,8 +1,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {View, Button, Text} from 'react-native';
+import AppNavigator from './navigation';
 import {NavigationContainer} from '@react-navigation/native';
-import AppNavigator from './navigation/index';
+console.disableYellowBox = true;
 
 function HomeScreen({navigation}) {
   return (
@@ -30,9 +31,9 @@ function VKScreen({navigation}) {
 export default class App extends React.Component {
   render() {
     return (
-
-        <AppNavigator/>
-
+      <View style={{flex: 1}}>
+        <AppNavigator />
+      </View>
     );
   }
 }
