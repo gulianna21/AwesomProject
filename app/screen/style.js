@@ -2,13 +2,13 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   photo: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     borderRadius: 5,
   },
   avatar: {
-    width: 12,
-    height: 12,
+    width: 70,
+    height: 70,
     borderRadius: 100,
   },
   name: {
@@ -57,3 +57,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+export default styles;

@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity, Modal, View, Button, Image, Text} from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import Style from './style';
+import style from './style';
 
 const photoAva = require('../img/ava.png');
 const photo1 = require('../img/1.png');
@@ -72,15 +72,12 @@ export default class VK extends React.Component {
         </Modal>
         <View style={{flexDirection: 'row', marginLeft: 10}}>
           <View style={{flexDirection: 'row', marginTop: 10}}>
-            <Image
-              source={photoAva}
-              style={{width: 70, height: 70, borderRadius: 55}}
-            />
+            <Image source={photoAva} style={style.avatar} />
           </View>
           <View style={{flexDirection: 'column', marginLeft: 1, marginTop: 10}}>
-            <Text style={Style.name}> Yulia Guskova </Text>
-            <Text style={Style.statusText}> this is my status </Text>
-            <Text style={Style.statusId}> online</Text>
+            <Text style={style.name}> Yulia Guskova </Text>
+            <Text style={style.statusText}> this is my status </Text>
+            <Text style={style.statusId}> online</Text>
           </View>
         </View>
         <View style={{flexDirection: 'column', marginTop: 5}}>
@@ -100,37 +97,38 @@ export default class VK extends React.Component {
               marginTop: 5,
               marginBottom: 5,
             }}>
-            <Text style={Style.mainText}>История </Text>
-            <Text style={Style.mainText}>Запись </Text>
-            <Text style={Style.mainText}>Фото </Text>
-            <Text style={Style.mainText}>Трансляция</Text>
+            <Text style={style.mainText}>История</Text>
+            <Text style={style.mainText}>Запись</Text>
+            <Text style={style.mainText}>Фото</Text>
+            <Text style={style.mainText}>Трансляция</Text>
+          </View>
+          <View style={{flexDirection: 'row',marginTop: 10}}>
+            <Icon name="home" size={20} color="blue" />
+            <Text style={style.statusId}>Город : Нижний новгород</Text>
           </View>
           <View style={{marginTop: 10}}>
-            <Text style={Style.statusId}>Город : Нижний новгород</Text>
-          </View>
-          <View style={{marginTop: 10}}>
-            <Text style={Style.statusId}>
+            <Text style={style.statusId}>
               Образование: ННГУ им. Лобачевского
             </Text>
           </View>
           <View style={{marginTop: 10}}>
-            <Text style={Style.mainText}>Укажите место работы</Text>
+            <Text style={style.mainText}>Укажите место работы</Text>
           </View>
           <View style={{marginTop: 10}}>
-            <Text style={Style.mainText}>Подробная информация</Text>
+            <Text style={style.mainText}>Подробная информация</Text>
           </View>
         </View>
         <View style={{flexDirection: 'column', marginTop: 10}}>
-          <Text style={Style.mainText}>Фотографии 5</Text>
+          <Text style={style.mainText}>Фотографии 5</Text>
           <TouchableOpacity onPress={this.checkVisibleTrue}>
             <View style={{flexDirection: 'row', marginTop: 10}}>
-              <Image source={photoAva} style={{width: 70, height: 70}} />
-              <Image source={photo1} style={{width: 70, height: 70}} />
-              <Image source={photo2} style={{width: 70, height: 70}} />
+              <Image source={photoAva} style={style.photo} />
+              <Image source={photo1} style={style.photo} />
+              <Image source={photo2} style={style.photo} />
             </View>
             <View style={{flexDirection: 'row', marginTop: 10}}>
-              <Image source={photo3} style={{width: 70, height: 70}} />
-              <Image source={photo4} style={{width: 70, height: 70}} />
+              <Image source={photo3} style={style.photo} />
+              <Image source={photo4} style={style.photo} />
             </View>
           </TouchableOpacity>
         </View>
